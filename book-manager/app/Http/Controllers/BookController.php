@@ -40,4 +40,32 @@ class BookController extends Controller
 
         return redirect('books/create')->with('status','Book Created');
     }
+
+    public function edit(int $id){
+        $book = Book::findOrFail($id);
+        return view('book.edit', compact('book'));
+    }
+
+    public function update(Request $request, int $id){
+        $request->validate([
+            'title' => 'required|max:255|string',
+            'author' => 'required|max:255|string',
+            'genre' => 'required|max:255|string',
+            'release_date' => 'required|date',
+            'description' => 'required|max:255|string',
+            'cover_image' => 'required|max:255|string',
+            
+        ]);
+
+        Book::findOrFail($id)->update([
+            'title' => $request->title,
+            'author' => $request->author,
+            'genre' => $request->genre,
+            'release_date' => $request->release_date,
+            'description' => $request->description,
+            'cover_image' => $request->cover_image,
+        ]);
+
+        return redirect()->back()->with('status','Book Updated');
+    }
 }

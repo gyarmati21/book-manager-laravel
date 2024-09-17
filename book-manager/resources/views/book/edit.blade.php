@@ -9,45 +9,41 @@
                 </h4>
             </div>
             <div class="card-body">
-                <form action="{{ url('books/create') }}" method="POST">
+                <form action="{{ url('books/' . $book->id . '/edit') }}" method="POST">
                     @csrf
+                    @method('PUT')
 
                     <div class="mb-3">
                         <label>Title:</label>
-                        <input type="text" name="title" value="{{ old('title') }}"/>
+                        <input type="text" name="title" value="{{ $book->title }}"/>
                         @error('title') <span class="text-danger">{{ $message }}</span> @enderror
                     </div>
                     <div class="mb-3">
                         <label>Author:</label>
-                        <input type="text" name="author" value="{{ old('author') }}"/>
+                        <input type="text" name="author" value="{{ $book->author }}"/>
                         @error('author') <span class="text-danger">{{ $message }}</span> @enderror
                     </div>
 
                     <div class="mb-3">
                         <label>Genre:</label>
-                        <select name="genre" class="form-control">
-                            <option value="">-- Select Genre --</option>
-                            @foreach (App\Models\Book::GENRES as $genre)
-                                <option value="{{ $genre }}" {{ old('genre') == $genre ? 'selected' : '' }}>{{ $genre }}</option>
-                            @endforeach
-                        </select>
+                        <input type="text" name="genre" value="{{ $book->genre }}"/>
                         @error('genre') <span class="text-danger">{{ $message }}</span> @enderror
                     </div>
 
                     <div class="mb-3">
                         <label>Release Date:</label>
-                        <input type="date" name="release_date" value="{{ old('release_date') }}"/>
+                        <input type="date" name="release_date" value="{{ $book->release_date }}"/>
                         @error('release_date') <span class="text-danger">{{ $message }}</span> @enderror
                     </div>
-
+                    
                     <div class="mb-3">
                         <label>Description</label>
-                        <textarea name="description" class="form-control" rows="3"> {{ old('description') }}</textarea>
+                        <textarea name="description" class="form-control" rows="3"> {{ $book->description }}</textarea>
                         @error('description') <span class="text-danger">{{ $message }}</span> @enderror
                     </div>
                     <div class="mb-3">
                         <label>Cover Image:</label>
-                        <input type="text" name="cover_image" value="{{ old('cover_image') }}"/>
+                        <input type="text" name="cover_image" value="{{ $book->cover_image }}"/>
                         @error('cover_image') <span class="text-danger">{{ $message }}</span> @enderror
                     </div>
                     <div class="mb-3">

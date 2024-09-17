@@ -35,7 +35,7 @@
                                     <td>{{$item->created_at}}</td>
                                     <td>{{$item->updated_at}}</td>
                                     <td>
-                                        <a href="">Edit</a>
+                                        <a href="{{ url('books/'.$item->id.'/edit') }}">Edit</a>
                                         <a href="" >Delete</a>
                                 </tr>
                             @endforeach

@@ -7,6 +7,7 @@ Route::get('/books/create', 'App\Http\Controllers\BookController@create');
 Route::post('/books/create', 'App\Http\Controllers\BookController@store');
 Route::get('/books/{id}/edit', 'App\Http\Controllers\BookController@edit');
 Route::put('/books/{id}/edit', 'App\Http\Controllers\BookController@update');
+Route::get('/books/{id}/delete', 'App\Http\Controllers\BookController@destroy');
 
 Route::get('/', function () {
     return view('welcome');

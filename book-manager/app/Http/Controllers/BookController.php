@@ -68,4 +68,12 @@ class BookController extends Controller
 
         return redirect()->back()->with('status','Book Updated');
     }
+
+    public function destroy(int $id){
+        $book = Book::findOrFail($id);
+        $book->delete();
+
+        return redirect()->back()->with('status','Book Deleted');
+
+    }
 }

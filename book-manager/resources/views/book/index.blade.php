@@ -36,7 +36,10 @@
                                     <td>{{$item->updated_at}}</td>
                                     <td>
                                         <a href="{{ url('books/'.$item->id.'/edit') }}">Edit</a>
-                                        <a href="" >Delete</a>
+                                        <a href="{{ url('books/'.$item->id.'/delete') }}" 
+                                            class="btn btn-danger mx-1"
+                                            onclick="return confirm('Are you sure you want to delete this book?')"
+                                            >Delete</a>
                                 </tr>
                             @endforeach
                         </tbody>

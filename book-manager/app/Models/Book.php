@@ -12,4 +12,17 @@ class Book extends Model
     protected $table = 'books';
 
     protected $fillable = ['title', 'author', 'release_date' ,'genre', 'description', 'cover_image'];
+
+    public const GENRES = [
+        'Fiction',
+        'Non-Fiction',
+        'Mystery',
+        'Fantasy',
+        'Science Fiction',
+        'Biography',
+        'Romance',
+        'Historical',
+        'Horror',
+        'Thriller'
+    ];
 }

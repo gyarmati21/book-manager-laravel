@@ -86,7 +86,9 @@
                                     <td>{{ $item->genre }}</td>
                                     <td>{{ $item->release_date }}</td>
                                     <td>{{ $item->description }}</td>
-                                    <td>{{ $item->cover_image }}</td>
+                                    <td>
+                                        <img src="{{ asset($item->cover_image) }}" style="width: 70px" alt="image">
+                                    </td>
                                     <td>{{ $item->created_at }}</td>
                                     <td>{{ $item->updated_at }}</td>
                                     <td>

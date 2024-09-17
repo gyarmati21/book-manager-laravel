@@ -13,7 +13,7 @@
                 </h4>
             </div>
             <div class="card-body">
-                <form action="{{ url('books/' . $book->id . '/edit') }}" method="POST">
+                <form action="{{ url('books/' . $book->id . '/edit') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
 
@@ -46,8 +46,8 @@
                         @error('description') <span class="text-danger">{{ $message }}</span> @enderror
                     </div>
                     <div class="mb-3">
-                        <label>Cover Image:</label>
-                        <input type="text" name="cover_image" value="{{ $book->cover_image }}"/>
+                        <label>Upload Image:</label>
+                        <input type="file" name="cover_image" value="{{ $book->cover_image }}"/>
                         @error('cover_image') <span class="text-danger">{{ $message }}</span> @enderror
                     </div>
                     <div class="mb-3">

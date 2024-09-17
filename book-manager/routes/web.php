@@ -10,5 +10,5 @@ Route::put('/books/{id}/edit', 'App\Http\Controllers\BookController@update');
 Route::get('/books/{id}/delete', 'App\Http\Controllers\BookController@destroy');
 
 Route::get('/', function () {
-    return view('book.index');
+    return redirect('/books');
 });

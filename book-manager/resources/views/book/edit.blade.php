@@ -1,11 +1,15 @@
+<x-app-layout>
 
+    <x-slot name="title">
+        Books
+    </x-slot>
 <title>Add Books</title>
-<div class="container">
+<div class="container mt-5">
     <div>
         <div class="card">
             <div class="card-header">
                 <h4>Add Books
-                    <a href="{{ url('books')}}">Back</a>
+                    <a href="{{ url('books')}}" class="btn btn-primary float-end">Back</a>
                 </h4>
             </div>
             <div class="card-body">
@@ -55,3 +59,4 @@
     </div>
 </div>
 
+</x-app-layout>

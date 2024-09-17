@@ -1,10 +1,14 @@
+<x-app-layout>
 
-    <div class="container">
-        <div>
+    <x-slot name="title">
+        Books
+    </x-slot>
+    <div class="container mt-5">
+        <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
                     <h4>Books
-                        <a href="{{ url('books/create')}}">Add Book</a>
+                        <a href="{{ url('books/create')}}" class="btn btn-primary float-end">Add Book</a>
                     </h4>
                 </div>
                 <div class="card-body">
@@ -35,7 +39,7 @@
                                     <td>{{$item->created_at}}</td>
                                     <td>{{$item->updated_at}}</td>
                                     <td>
-                                        <a href="{{ url('books/'.$item->id.'/edit') }}">Edit</a>
+                                        <a href="{{ url('books/'.$item->id.'/edit') }}" class="btn btn-success mx-2">Edit</a>
                                         <a href="{{ url('books/'.$item->id.'/delete') }}" 
                                             class="btn btn-danger mx-1"
                                             onclick="return confirm('Are you sure you want to delete this book?')"
@@ -48,4 +52,4 @@
             </div>
         </div>
     </div>
-    
+</x-app-layout>
